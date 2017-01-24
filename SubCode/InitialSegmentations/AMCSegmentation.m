@@ -8,7 +8,7 @@ function [Salpix, Sal]=AMCSegmentation(im, Label, SupCol,EdgSup,Ncol)
     imsegs.segimage = segments;
     num_region = max(imsegs.segimage(:));
     
-    [ConPix, ConPixDouble, ~]=ACM_Init(Label,k,height,width,[]);
+    [ConPix, ConPixDouble, ~]=AMC_Init(Label,k,height,width);
     
     SaliencyParams.Img =im;
     SaliencyParams.Label=Label;

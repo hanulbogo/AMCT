@@ -12,7 +12,7 @@ else
     [Label, Sup1, Sup2, Sup3, k] =SEEDS_SupPix(im,k);
 end
 
-[ConPix, ConPixDouble, EdgSup]=ACM_Init(Label,k,height,width,[]);
+[ConPix, ConPixDouble, EdgSup]=AMC_Init(Label,k,height,width);
 
 EdgSupORG = EdgSup;
 SLICCol =[Sup1';Sup2';Sup3'];

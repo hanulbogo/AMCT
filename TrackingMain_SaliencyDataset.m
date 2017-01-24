@@ -1,4 +1,6 @@
 function TrackingMain_SaliencyDataset()
+global InitGTFlag;
+global InitCNNFlag;
 global SupFlag;
 global InputPath;
 global OutputPath;

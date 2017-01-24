@@ -8,9 +8,16 @@ dataset ={'NRD','GBD','SSD','STD'};
 % end
 
 % % 
-for dd=1:length(dataset)
+global InitGTFlag;
+global InitCNNFlag;
+InitGTFlag=0;
+InitCNNFlag=1;
+for dd=1%:length(dataset)
     %Run VAMC
-    RunCode_VAMC(dataset{dd});
+%     RunCode_VAMC(dataset{dd});
+    %Run VAMC+CNN
+    RunCode_VAMC_CNN(dataset{dd})
+    
 %       RunCode_Tracking_Saliency_Dataset_initSVR(dataset{dd});
 %     RunCode_Tracking_Saliency_Dataset_withInitGT(dataset{dd});
 %     RunCode_Tracking_Saliency_Dataset_BoundaryEdge(dataset{dd});
@@ -26,10 +33,3 @@ for dd=1:length(dataset)
 %     RunCode_Tracking_Saliency_Dataset_NGAMC(dataset{dd});
 %     RunCode_Tracking_Saliency_Dataset_NGAMC_wInitGT(dataset{dd});
 end
-% 
-% 
-% for dd=[3,2,1]%1:length(dataset);
-% %     RunCode_Tracking_Saliency_Dataset(dataset{dd});
-% %     RunCode_Tracking_Saliency_Dataset_cAMC(dataset{dd});
-%     RunCode_Tracking_Saliency_Dataset_NGAMC(dataset{dd});
-% end
