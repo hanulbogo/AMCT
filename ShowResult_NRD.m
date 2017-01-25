@@ -1,4 +1,4 @@
-function ShowResult_nonrigid()
+function ShowResult_NRD()
 global InputPath;
 global OutputPath;
 
@@ -55,18 +55,18 @@ for cc =1:length(Cats)
         gcx =(GT(1,ff)+GT(3,ff))/2;
         CLE =[CLE;sqrt((bcy-gcy)^2 + (bcx-gcx)^2)];
 %         
-        figure(1);
-        subplot(2,1,1);
-        imshow(uint8(img));
-        title('img');
-        subplot(2,1,2);
-        imshow(BasicSal,[]);
-        title('Basic Sal');
-        hold on;
-        plot([bbox(2), bbox(2), bbox(4), bbox(4) ,bbox(2)],[bbox(1), bbox(3), bbox(3), bbox(1) ,bbox(1)],'r-');
-        plot([GT(1,ff), GT(3,ff), GT(3,ff), GT(1,ff) ,GT(1,ff)],[GT(2,ff), GT(2,ff), GT(4,ff), GT(4,ff) ,GT(2,ff)],'g-');
-        hold off;
-        drawnow();
+%         figure(1);
+%         subplot(2,1,1);
+%         imshow(uint8(img));
+%         title('img');
+%         subplot(2,1,2);
+%         imshow(BasicSal,[]);
+%         title('Basic Sal');
+%         hold on;
+%         plot([bbox(2), bbox(2), bbox(4), bbox(4) ,bbox(2)],[bbox(1), bbox(3), bbox(3), bbox(1) ,bbox(1)],'r-');
+%         plot([GT(1,ff), GT(3,ff), GT(3,ff), GT(1,ff) ,GT(1,ff)],[GT(2,ff), GT(2,ff), GT(4,ff), GT(4,ff) ,GT(2,ff)],'g-');
+%         hold off;
+%         drawnow();
 %         pause;
         result_binary = zeros(size(img,1),size(img,2));
         result_binary(bbox(1):bbox(3), bbox(2):bbox(4))=1;

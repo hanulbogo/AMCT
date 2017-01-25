@@ -31,7 +31,7 @@ bsize =0.45;
 
 %For each Category
 
-for cc =1%:length(Cats)%[1:6 8:9]%10:length(Cats)]
+for cc =2:length(Cats)%[1:6 8:9]%10:length(Cats)]
     %video path
     cpath = [InputPath Cats(cc).name '/imgs/'];
     cnncpath = [CNNPath Cats(cc).name '/'];

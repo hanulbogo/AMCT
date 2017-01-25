@@ -1,6 +1,6 @@
-function RunCode_VAMC(dataset)
+function BB_GT(dataset)
 % Code to run VAMC
-
+dataset = 'DAVIS480p';
 addpath(genpath('./SubCode/'));
 % addpath(genpath('./EPPM_FLOW/'));
 % addpath(genpath('./Saliency/'));
@@ -24,7 +24,6 @@ global supth;
 global multiplier;
 global maxsal;
 global KK;
-
 global meanval ;
 global stdval
 
@@ -33,14 +32,14 @@ maxsal=0;
 multiplier =1;
 supth=0.5;
 Ncol=1;
-
+KK=600;
 SupFlag = 1;
 switch SupFlag
     case 0
         flabel =['ERS_' num2str(KK)];
     case 1
         %         flabel =[ 'SalData_Final_' num2str(KK) '_abs_3_6bins_hist90'];
-        flabel =[ 'VAMC_' num2str(KK)];
+        flabel =[ 'VAMC'];
     case 2
         flabel =['SEEDS_' num2str(KK)];
 end
@@ -104,27 +103,9 @@ if ~exist(OutputPath,'dir')
     mkdir(OutputPath);
 end
 
-if strcmp(dataset ,'NRD') 
-    TrackingMain_NRD();
-    fprintf('\nBB\n');
-    ShowResult_NRD();
-    fprintf('\nSeg\n');
-    ShowResult_Seg_NRD();
-elseif strcmp(dataset ,'DAVIS480p') 
-    TrackingMain_SaliencyDataset();
-    fprintf('\nBB\n');
-    ShowResult_NRD();
-    fprintf('\nSeg\n');
-    ShowResult_Seg_DAVIS();
-    %same as ShowResult_Seg
-else
-    TrackingMain_SaliencyDataset();
-    fprintf('\nBB\n');
-    ShowResult();
-    fprintf('\nSeg\n');
-    ShowResult_Seg();
+
+    BB_GT_Main();
     
-end
 % ProduceBB();
 % ShowResult_Bench();
 % ShowResult_VOT14();

@@ -87,6 +87,13 @@ switch dataset
         OFroot =[resultpath 'STD_OF_EPPM/'];
         Outimgpath =[resultpath 'STD_ResultImg/'];
         CNNPath = './../ObjectFlow-master/STD_Data/cnn/';
+    case 'DAVIS480p'
+        InputPath = './../NewDataset/DAVIS480p/'; %CategoryFolder->Frames
+        GTPath = './../NewDataset_GT/DAVIS480p_GT/'; %CategoryFolder->Frames
+        OutputPath = [resultpath 'DAVIS480p_Result/']; %videos
+        OFroot =[resultpath 'DAVIS480p_OF_EPPM/'];
+        Outimgpath =[resultpath 'DAVIS480p_ResultImg/'];
+        CNNPath = './../ObjectFlow-master/DAVIS480p_Data/cnn/';
 end
 
 outimgpath=[Outimgpath flabel '/'];
@@ -108,9 +115,15 @@ end
 if strcmp(dataset ,'NRD')
     TrackingMain_NRD_CNN();
     fprintf('\nBB\n');
-    ShowResult_nonrigid();
+    ShowResult_NRD();
     fprintf('\nSeg\n');
     ShowResult_Seg_NRD();
+elseif strcmp(dataset ,'DAVIS480p')
+    TrackingMain_SaliencyDataset_CNN();
+    fprintf('\nBB\n');
+    ShowResult_NRD();
+    fprintf('\nSeg\n');
+    ShowResult_Seg_DAVIS();
 else
     TrackingMain_SaliencyDataset_CNN();
     fprintf('\nBB\n');

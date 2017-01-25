@@ -40,7 +40,7 @@ end
 [Label,Sup1, Sup2 ,Sup3, cK] = SLIC_SupPix(double(img), cK);
 
 %2 현재 frame의 그래프를 형성
-[ConPix, ConPixDouble,SP.cEdgSup]=ACM_Init_Simple(Label,cK,height,width);
+[ConPix, ConPixDouble,SP.cEdgSup]=AMC_Init_Simple(Label,cK,height,width);
 
 Ncol=PP.Ncol;
 SLICCol =[Sup1';Sup2';Sup3'];
