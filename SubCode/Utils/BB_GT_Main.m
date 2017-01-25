@@ -109,7 +109,11 @@ for cc =1:length(Cats)%[1:6 8:9]%10:length(Cats)]
         xs =xx(gtimg>0);
         ys =yy(gtimg>0);
 %         [min(xs); min(ys); max(xs); max(ys)];
-        fprintf(fid,'%f %f %f %f\n',min(xs), min(ys), max(xs), max(ys));
+        if isempty(xs) || isempty(ys)
+            fprintf(fid,'-1 -1 -1 -1\n');
+        else
+            fprintf(fid,'%f %f %f %f\n',min(xs), min(ys), max(xs), max(ys));
+        end
     end
     fclose(fid);
 end
