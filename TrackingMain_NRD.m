@@ -25,7 +25,7 @@ global st;
 global outimgpath;
 
 %For each Category
-for cc =1:length(Cats)%[3,4,5,6,8,9,11]%1:length(Cats)%[1:8,11]%1:length(Cats)%[1:6 8:9]%10:length(Cats)]
+for cc =2%1:length(Cats)%[3,4,5,6,8,9,11]%1:length(Cats)%[1:8,11]%1:length(Cats)%[1:6 8:9]%10:length(Cats)]
     
     K=KK;
     mval=1;

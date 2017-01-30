@@ -1,6 +1,7 @@
 function TrackingMain_NRD_CNN()
 global InitGTFlag;
 global InitCNNFlag;
+global InitPureFlag;
 global SupFlag;
 global InputPath;
 global OutputPath;
@@ -142,7 +143,11 @@ for cc =1:length(Cats)%[3,4,5,6,8,9,11]%1:length(Cats)%[1:8,11]%1:length(Cats)%[
     Params.orgcol= orgcol;
     Params.gtimg =gtimg(rowind, colind);
     if InitGTFlag ==1
-        [Salpix,Sal,bbox]=InitialSegmentation_wGTInit(Params);
+        if InitPureFlag==1
+            [Salpix,Sal,bbox] =InitialSegmentation_wGTInit_Pure(Params);
+        else
+            [Salpix,Sal,bbox]=InitialSegmentation_wGTInit(Params);
+        end
     else
         if InitCNNFlag==1
             [Salpix,Sal,bbox]=InitialSegmentation_CNN(Params);

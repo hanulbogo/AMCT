@@ -1,7 +1,7 @@
 function TrackingMain_SaliencyDataset_CNN()
 global InitGTFlag;
 global InitCNNFlag;
-
+global InitPureFlag;
 global SupFlag;
 global InputPath;
 global OutputPath;
@@ -31,7 +31,7 @@ bsize =0.45;
 
 %For each Category
 
-for cc =2:length(Cats)%[1:6 8:9]%10:length(Cats)]
+for cc =1:length(Cats)%[1:6 8:9]%10:length(Cats)]
     %video path
     cpath = [InputPath Cats(cc).name '/imgs/'];
     cnncpath = [CNNPath Cats(cc).name '/'];
@@ -149,7 +149,11 @@ for cc =2:length(Cats)%[1:6 8:9]%10:length(Cats)]
     Params.gtimg =gtimg(rowind, colind);
     
     if InitGTFlag ==1
-        [Salpix,Sal,bbox]=InitialSegmentation_wGTInit(Params);
+        if InitPureFlag==1
+            [Salpix,Sal,bbox] =InitialSegmentation_wGTInit_Pure(Params);
+        else
+            [Salpix,Sal,bbox]=InitialSegmentation_wGTInit(Params);
+        end
     else
         if InitCNNFlag==1
             [Salpix,Sal,bbox]=InitialSegmentation_CNN(Params);

@@ -23,6 +23,7 @@ global CNNPath;
 global InitGTFlag;
 global csize;
 global bsize;
+global InitPureFlag;
 csize=0.5;
 bsize =0.45;
 nbins=6;
@@ -40,7 +41,7 @@ switch SupFlag
     case 1
         %         flabel =['SLIC_' num2str(KK) '_Original_moving_init25_abs5'];
 %         flabel =[ 'fcn_Max_' num2str(KK) '_abs_3_6bins_hist90_csize',num2str(csize,'%.2f'), 'bsize' num2str(bsize,'%.2f')];
-        flabel =['VAMC_CNN_InitGTFlag_' num2str(InitGTFlag) '_InitCNNFlag_' num2str(InitCNNFlag)];
+        flabel =['VAMC_CNN_InitGTFlag_' num2str(InitGTFlag) '_InitCNNFlag_' num2str(InitCNNFlag) '_InitPureFlag_' num2str(InitPureFlag)];
     case 2
         flabel =['SEEDS_' num2str(KK)];
 end
@@ -121,7 +122,7 @@ if strcmp(dataset ,'NRD')
 elseif strcmp(dataset ,'DAVIS480p')
     TrackingMain_SaliencyDataset_CNN();
     fprintf('\nBB\n');
-    ShowResult_NRD();
+    ShowResult_DAVIS();
     fprintf('\nSeg\n');
     ShowResult_Seg_DAVIS();
 else

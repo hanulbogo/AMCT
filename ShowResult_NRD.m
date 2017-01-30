@@ -45,6 +45,10 @@ for cc =1:length(Cats)
         if ~exist([salcpath num2str(fidx,'%04d') '.mat'],'file')
             continue;
         end
+        if GT(1,ff)==-1
+            continue;
+        end
+          
         img =double(imresize(imread([cpath FrameEnum(fidx).name]),scale));
         
         load([salcpath num2str(fidx,'%04d') '.mat']);

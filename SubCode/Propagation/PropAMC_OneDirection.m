@@ -188,18 +188,18 @@ end
 lastlabel = cSal>sth;
 lastcol = SP.cSupCol{1}';
 
-figure(101);
-subplot(2,1,1);
-imshow(Salpix>0);
-hold on;
-plot([bbox(2), bbox(2), bbox(4), bbox(4) ,bbox(2)],[bbox(1), bbox(3), bbox(3), bbox(1) ,bbox(1)],'r-');
-hold off;
-subplot(2,1,2);
-imshow(uint8(PP.corgimg));
-hold on;
-plot([bbox(2), bbox(2), bbox(4), bbox(4) ,bbox(2)],[bbox(1), bbox(3), bbox(3), bbox(1) ,bbox(1)],'r-');
-hold off;
-drawnow();
+% figure(101);
+% subplot(2,1,1);
+% imshow(Salpix>0);
+% hold on;
+% plot([bbox(2), bbox(2), bbox(4), bbox(4) ,bbox(2)],[bbox(1), bbox(3), bbox(3), bbox(1) ,bbox(1)],'r-');
+% hold off;
+% subplot(2,1,2);
+% imshow(uint8(PP.corgimg));
+% hold on;
+% plot([bbox(2), bbox(2), bbox(4), bbox(4) ,bbox(2)],[bbox(1), bbox(3), bbox(3), bbox(1) ,bbox(1)],'r-');
+% hold off;
+% drawnow();
 % % pause;
 % if ff==280
 %     ff;

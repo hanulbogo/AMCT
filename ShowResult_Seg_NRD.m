@@ -4,8 +4,8 @@ global OutputPath;
 global GTPath;
 Cats =dir(InputPath);
 Cats =Cats(3:end);
-% global outimgpath;
-% outimgpath=['./Result_img/' flabel '/'];
+global outimgpath;
+
     
 sf =[0 0 0 1 1 0 1 0 0 0 0];
 sf = 1-sf;
@@ -77,6 +77,7 @@ for cc =1:length(Cats)
         sumunion = sum(sumimg(:));
         
         overlap_ratio = [overlap_ratio; sumoverlap/ (sumunion+eps)];
+        imwrite(uint8(segimg*255), [outimgpath Cats(cc).name '/' num2str(idx,'%04d') '.jpg']);
 %         
 %         figure(1);
 %         subplot(2,1,1);
@@ -92,6 +93,7 @@ for cc =1:length(Cats)
     
     fprintf('%s %.1f \n', Cats(cc).name, mean(overlap_ratio)*100);
     save([salcpath,Cats(cc).name '_seg_overlap.mat'], 'overlap_ratio');
+    
 %      writerObj = VideoWriter('./diving_org.avi');
 %      open(writerObj);
 %      writeVideo(writerObj,uint8(resvideo))

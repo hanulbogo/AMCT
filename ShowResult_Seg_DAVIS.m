@@ -40,9 +40,12 @@ for cc =1:length(Cats)
             gtimg(gtimg>=128)=1;
         end
         gtimg =double(gtimg);
+        if sum(gtimg(:))==0
+            continue;
+        end
         
         %
-        idx =str2num(GTEnum(ff).name(1:end-4));
+        idx =str2num(GTEnum(ff).name(1:end-4))+1;
 %         if idx==1
 %             continue;
 %         end
@@ -51,6 +54,7 @@ for cc =1:length(Cats)
             continue;
         end
         load([salcpath num2str(idx,'%04d') '.mat']);
+        
         segimg= double(BasicSal>0);
         overlapimg =(segimg .* gtimg);
         sumimg = double((segimg+gtimg)>0);
@@ -68,7 +72,7 @@ for cc =1:length(Cats)
 %         subplot(2,1,2);
 %         imshow(gtimg,[]);
 %         drawnow();
-%         imwrite(uint8(BasicSal>0)*255,[outimgcpath num2str(idx,'%04d') '.jpg']);
+        imwrite(uint8(BasicSal>0)*255,[outimgcpath num2str(idx,'%04d') '.jpg']);
 %         pause;
     end
     if ~exist([OutputPath Cats(cc).name '/'],'dir')

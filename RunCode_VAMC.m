@@ -41,6 +41,7 @@ switch SupFlag
     case 1
         %         flabel =[ 'SalData_Final_' num2str(KK) '_abs_3_6bins_hist90'];
         flabel =[ 'VAMC_' num2str(KK)];
+%         flabel =[ 'VAMC'];
     case 2
         flabel =['SEEDS_' num2str(KK)];
 end
@@ -87,7 +88,7 @@ switch dataset
         OFroot =[resultpath 'DAVIS480p_OF_EPPM/'];
         Outimgpath =[resultpath 'DAVIS480p_ResultImg/'];
 end
-
+fprintf('\n%s',flabel);
 outimgpath=[Outimgpath flabel '/'];
 if ~exist(outimgpath,'dir')
     mkdir(outimgpath);
@@ -111,19 +112,19 @@ if strcmp(dataset ,'NRD')
     fprintf('\nSeg\n');
     ShowResult_Seg_NRD();
 elseif strcmp(dataset ,'DAVIS480p') 
-    TrackingMain_SaliencyDataset();
+%     TrackingMain_SaliencyDataset();
     fprintf('\nBB\n');
-    ShowResult_NRD();
-    fprintf('\nSeg\n');
+    ShowResult_DAVIS();
+%     fprintf('\nSeg\n');
     ShowResult_Seg_DAVIS();
-    %same as ShowResult_Seg
+%     same as ShowResult_Seg
 else
-    TrackingMain_SaliencyDataset();
+%     TrackingMain_SaliencyDataset();
     fprintf('\nBB\n');
     ShowResult();
     fprintf('\nSeg\n');
     ShowResult_Seg();
-    
+%     
 end
 % ProduceBB();
 % ShowResult_Bench();

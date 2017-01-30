@@ -97,7 +97,7 @@ for cc=1:Ncol
         if cc==1
             ldamodel{cc} = svmtrain(double(labels),svmnormalize_CNN([oldCol{cc}';lastcol{cc}';EdgCol],cc),'-s 3 -t 2 -c 10 -g 1 -h 0 -q');
         else
-            ldamodel{cc} = svmtrain(double(labels),([oldCol{cc}';lastcol{cc}';EdgCol]),'-s 3 -h 0 -q');
+            ldamodel{cc} = train(double(labels),sparse([oldCol{cc}';lastcol{cc}';EdgCol]),'-s 0 -B 1 -q');
         end
     else
         meanval{cc} = mean([oldCol{cc}';EdgCol],1);
@@ -106,8 +106,14 @@ for cc=1:Ncol
         labels(labels==0) = -1;
         if cc==1
             ldamodel{cc}= svmtrain(double(labels),svmnormalize_CNN([oldCol{cc}';EdgCol],cc),'-s 3 -t 2 -c 10 -g 1 -h 0 -q');
+            
+            
         else
-            ldamodel{cc} = svmtrain(double(labels),[oldCol{cc}';EdgCol],'-s 3 -q');
+            %      cnnModel = train(trainLabel, sparse(double(trainData)), '-s 0 -B 1 -q');
+            ldamodel{cc} = train(double(labels),sparse([oldCol{cc}';EdgCol]),'-s 0 B 1 -q');
+            %             label1=svmpredict(zeros(length(SP.cSupCol{1}'),1),svmnormalize_CNN(SP.cSupCol{1}'),ldamodel,'-q');
+            %             figure(89);imshow(sup2pixel2(label1,SP.cLabel),[]); title('NewClassifier');
+            %             pause;
         end
     end
 end

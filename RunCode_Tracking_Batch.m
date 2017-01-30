@@ -10,9 +10,11 @@ dataset ={'NRD','GBD','SSD','STD','DAVIS480p'};
 % % 
 global InitGTFlag;
 global InitCNNFlag;
+global InitPureFlag;
 InitGTFlag=0;
-InitCNNFlag=1;
-for dd=5%:length(dataset)
+InitCNNFlag=0;
+InitPureFlag=0;
+for dd=1:4%:length(dataset)
     %Run VAMC
 %     RunCode_VAMC(dataset{dd});
     %Run VAMC+CNN
