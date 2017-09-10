@@ -1,3 +1,8 @@
+This code is for Abosorbing Markov Chain Trakcer which is introduced in
+
+"Superpixel-based Tracking-by-Segmentation using Markov Chains." CVPR (2017).
+Donghun Yeo, Jeany Son, Bohyung Han, Joonhee Han.
+
 To run code for tracking.
 
   RunCode_Tracking_Batch.m 
@@ -13,3 +18,10 @@ I recemmend you to set the frame name as frame number, for example, 00001.jpg, 0
 
   Any questions are welcome.
 
+
+Should-be-updated lists.
+
+This code is not completed without CNN extraction feature code which is in
+https://github.com/wasidennis/ObjectFlow
+
+We will add the code.
