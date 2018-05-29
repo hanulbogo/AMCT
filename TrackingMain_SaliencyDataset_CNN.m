@@ -33,7 +33,7 @@ bsize =0.45;
 
 for cc =1:length(Cats)%[1:6 8:9]%10:length(Cats)]
     %video path
-    cpath = [InputPath Cats(cc).name '/'];
+    cpath = [InputPath Cats(cc).name '/imgs/'];
     cnncpath = [CNNPath Cats(cc).name '/'];
     %gt path
     gtcpath = [GTPath Cats(cc).name '/'];
