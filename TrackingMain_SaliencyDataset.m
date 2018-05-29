@@ -38,7 +38,7 @@ bsize =0.45;
 % hgamma = vision.GammaCorrector(2.0,'Correction','De-gamma');
 for cc =1:length(Cats)%[1:6 8:9]%10:length(Cats)]
     %video path
-    cpath = [InputPath Cats(cc).name '/imgs/'];
+    cpath = [InputPath Cats(cc).name '/'];
     %gt path
     gtcpath = [GTPath Cats(cc).name '/'];
     %saliency map path
