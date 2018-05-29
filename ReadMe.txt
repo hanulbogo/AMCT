@@ -21,9 +21,12 @@ https://postechackr-my.sharepoint.com/:u:/g/personal/hanulbog_postech_ac_kr/EfG9
 DAVIS dataset is not included please download the DAVIS dataset from official page and change the directories as the following structures.
 
 Image path:
-ImageRootName/VideoName/FrameName
+ImageRootName/VideoName/"imgs"/FrameName
 
-GT path:
+GT (bounding box) path:
+ImageRootName/VideoName/VideoName_gt.txt
+
+GT (segmentation) path:
 GTRootName/VideoName/FrameName
 
   Any questions are welcome.
