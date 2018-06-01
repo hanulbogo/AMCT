@@ -21,6 +21,7 @@ global KK;
 global meanval ;
 global stdval
 
+KK=600;
 nbins=6;
 maxsal=0;
 multiplier =1;
